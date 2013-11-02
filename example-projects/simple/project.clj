@@ -1,6 +1,6 @@
 (defproject cljsbuild-example-simple "0.3.4"
   :description "A simple example of how to use lein-cljsbuild"
-  :source-paths ["src-clj"]
+  :source-paths ["src-clj" "src-cljs"]
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-1859"
                   :exclusions [org.apache.ant/ant]]
@@ -12,6 +12,7 @@
   :hooks [leiningen.cljsbuild]
   
   :cljsbuild {:builds [{:source-paths ["src-cljs"]
+                        :jar true
                         :compiler {:output-to "resources/public/js/main.js"
                                    :optimizations :whitespace
                                    :pretty-print true}}]}
