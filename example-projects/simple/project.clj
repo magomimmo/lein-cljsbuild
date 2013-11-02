@@ -8,9 +8,11 @@
                  [hiccup "1.0.4"]]
   :plugins [[lein-cljsbuild "0.3.4"]
             [lein-ring "0.8.7"]]
-  :cljsbuild {
-    :builds [{:source-paths ["src-cljs"]
-              :compiler {:output-to "resources/public/js/main.js"
-                         :optimizations :whitespace
-                         :pretty-print true}}]}
+
+  :hooks [leiningen.cljsbuild]
+  
+  :cljsbuild {:builds [{:source-paths ["src-cljs"]
+                        :compiler {:output-to "resources/public/js/main.js"
+                                   :optimizations :whitespace
+                                   :pretty-print true}}]}
   :ring {:handler example.routes/app})
